@@ -1,0 +1,161 @@
+
+<!-- 21.加载动画 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>21.加载动画</title>
+  <style type="text/css">
+    /* 清除默认外边距 */
+    body{  
+      margin: 0;
+      background-color: #ddd;
+    }
+    .loading{
+      width: 200px;
+      height: 200px;
+      /* background-color: skyblue; */
+      background-color: rgba(255, 2555, 255, 0);
+      margin: 100px auto 0;
+
+      position: relative;
+    }
+    .loading .item{
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: rgba(255, 2555, 255, 0.2);
+
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -10px;
+
+      /* 
+      移动 旋转中心  
+      让当前元素的 左上角 到达 父元素中心
+      当前元素 x轴移动10px,y轴移动100px
+      */
+      transform-origin: 10px 100px;  
+
+      /* 使用 自定义样式属性，设置 每个item的旋转位置  
+      calc(var(--i) * 40deg  */ 
+      transform: rotate(calc(var(--i) * 40deg));  
+
+       /* 
+       设置 动画:  动画名称、时长、动画函数、延时时长、循环 
+       */
+      animation: loading 2s ease 0.11s infinite;
+      /* 使用 自定义样式属性，设置 每个item的动画延时，*/
+      animation-delay: calc(var(--i) * 0.11s); 
+
+    }
+    
+    @keyframes loading {
+      0%,50%{
+        background-color: rgba(255, 2555, 255, 0.2);
+      }
+      50.5%,100%{
+        /* background-color: #fff; */
+        background-color: skyblue;
+      }
+    }
+
+    /* 
+    使用自定义样式属性：
+    自定义属性 以--开头
+    属性值     从0开始 
+    */
+
+    /* 360 / 9 =40 deg */
+    
+    /*  var(--i)获取自定义样式属性 --i 的值，calc()是计算函数  */
+    
+    /* 
+    .loading .item:nth-child(1){
+      transform: rotate(calc(var(--i)*40deg));  
+    }
+
+    .loading .item:nth-child(3){
+      transform: rotate(calc(var(--i)*40deg));  
+    } 
+    */
+
+
+
+
+    /*  没有使用 自定义样式属性时 */
+
+    /* 
+    .loading .item:nth-child(1){
+      transform: rotate(0deg);  
+    }
+    .loading .item:nth-child(2){
+      transform: rotate(40deg);  
+    }
+    .loading .item:nth-child(3){
+      transform: rotate(80deg);  
+    }
+    .loading .item:nth-child(4){
+      transform: rotate(120deg);  
+    }
+    .loading .item:nth-child(5){
+      transform: rotate(160deg);  
+    }
+    .loading .item:nth-child(6){
+      transform: rotate(200deg);  
+    }
+    .loading .item:nth-child(7){
+      transform: rotate(240deg);  
+    }
+    .loading .item:nth-child(8){
+      transform: rotate(2800deg);  
+    }
+    .loading .item:nth-child(9){
+      transform: rotate(320deg);  
+    } 
+    */
+
+
+    /* 没有 使用 自定义样式属性 时 */
+    /*  延时：每个item动画延时发生，延时 1/9=0.11s   */
+    
+    /* 
+    .loading .item:nth-child(1){
+      animation-delay: 0s; 
+    } 
+
+    .loading .item:nth-child(2){
+      animation-delay: 0.11s; 
+    }
+    .loading .item:nth-child(3){
+      animation-delay: 0.22s; 
+    } 
+    
+    */
+  </style>
+</head>
+<body>
+  <div class="loading">
+    <!--   
+      使用自定义样式属性：
+      自定义样式属性 以--开头
+      属性值     从0开始   
+    -->
+    <div class="item" style="--i:0"></div>
+    <div class="item" style="--i:1"></div>
+    <div class="item" style="--i:2"></div>
+    <div class="item" style="--i:3"></div>
+    <div class="item" style="--i:4"></div>
+    <div class="item" style="--i:5"></div>
+    <div class="item" style="--i:6"></div>
+    <div class="item" style="--i:7"></div>
+    <div class="item" style="--i:8"></div>
+  </div>
+  
+  
+</body>
+</html>

@@ -1,0 +1,177 @@
+
+<!-- 13.时间轴布局 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13.时间轴布局</title>
+  <style type="text/css">
+    /* 清除默认外边距 */
+    body{  
+      margin: 0;
+      background-image: linear-gradient(to right, #fdfed8,#b1bbf9);
+    }
+    h3{
+      margin: 0;
+    }
+    .time-axis{
+       width: 804px;  /* 4px是左右 分别的 边框宽度,使左右边框对齐 */
+      /* height: 500px; */
+      border: 1px solid red;
+      margin: 50px auto 0;
+    }
+
+    .time-axis .left{
+      width: 400px;
+      /* height: 100px; */
+      background: skyblue;
+
+      float: left;
+      
+      border-right: 4px solid #b1bbf9;
+      
+      position: relative;
+    }
+    .time-axis .right{
+      width: 400px;
+      /* height: 100px; */
+      background: aqua;
+
+      float: right;
+      
+      border-left: 4px solid #b1bbf9;
+      
+      position: relative;
+      
+    }
+    .clearfix::after{
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+
+    .time-axis .dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+
+      background: white;
+
+      /* span是内联元素，转为 块元素，使其可以设置边框 */
+      display: block;
+      border: 2px solid #b1bbf9;
+
+      position: absolute;  /* 分别 相对于 左、右盒子  */
+
+      top: 50%;
+      margin-top: -7px;  
+      /* （高度10px + 边框2+2 ）/2 =7px  */
+      
+      right: -9px; 
+      /* （宽度10px + 边框2+2 + 左盒子右边框4px）/2 =9px  */
+      
+    }
+    .time-axis .right .dot{
+      /*  左右的小圆圈 垂直居中 都已由上一条样式 完成  */
+      left: -9px;
+      
+    }
+
+    .time-axis .arrow{
+      
+      display: block;
+      width: 32px;
+      height: 32px;
+      
+      background: url(./13.images/r-arrow.png) no-repeat;
+
+      position: absolute;  /* 分别相对于 左、右盒子  */
+
+      top: 50%;
+      margin-top: -16px;
+      
+      right: 0;
+      
+    }
+    .time-axis .right .arrow{
+      background: url(./13.images/l-arrow.png) no-repeat;
+      left: 0;
+    }
+
+    .time-axis .content{
+      /* height: 200px; */
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-right: 21px;
+      text-align: center;
+    }
+    .time-axis .right .content{
+      margin-right: 0;
+      margin-left: 21px;
+    }
+    .time-axis .content h3{
+      /* border: 1px solid #000; */
+      font-weight: 400px;
+    }
+    .time-axis .content h3 span{
+      font-size: 35px;
+      font-weight: 800px;
+      font-family: Arial;
+      color: #b1bbf9;
+    }
+  </style>
+</head>
+<body>
+  <div class="time-axis clearfix">
+
+    <div class="left">
+      <span class="dot"></span>
+      <span class="arrow"></span>
+      <div class="content">
+        <h3>
+          <span>“</span>春季腹泻要当心，益生菌要这样...<span>”</span>
+        </h3>
+        <img src="" alt="" width="300px">
+      </div>
+    </div>
+
+    <div class="right">
+      <span class="dot"></span>
+      <span class="arrow"></span>
+      <div class="content">
+        <h3>
+          <span>“</span>春季腹泻要当心，益生菌要这样...<span>”</span>
+        </h3>
+      </div>
+    </div>
+
+    <div class="left">
+      <span class="dot"></span>
+      <span class="arrow"></span>
+      <div class="content">
+        <h3>
+          <span>“</span>春季腹泻要当心，益生菌要这样...<span>”</span>
+        </h3>
+        <img src="" alt="" width="300px">
+      </div>
+    </div>
+
+    <div class="right">
+      <span class="dot"></span>
+      <span class="arrow"></span>
+      <div class="content">
+        <h3>
+          <span>“</span>春季腹泻要当心，益生菌要这样...<span>”</span>
+        </h3>
+      </div>
+    </div>
+
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,177 @@
+
+<!-- 24.鼠标悬停-3D旋转木马 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>24.鼠标悬停-3D旋转木马</title>
+  <style type="text/css">
+    /* 清除默认外边距 */
+    body{  
+      margin: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .scene{
+      width: 600px;
+      height: 300px;
+      /* border: 1px solid red; */
+      margin: 100px auto 0;
+      
+      /*  
+      3D转换：写在作用元素.box的父元素上，
+      perspective属性值为 屏幕视距 
+      */
+      perspective: 800px;
+    }
+    .scene .box{
+      width: 600px;
+      height: 300px;
+      /* background-color: aqua; */
+
+      /* 
+      在 3D变换 作用元素.box 加此属性transform-style: preserve-3d,
+
+      保存了 .box的父元素的 3D场景
+          使 .box的子元素   也能3d变换 
+      */
+      transform-style: preserve-3d;
+
+      
+      /* transition: all ease 1s; */
+
+      /*  整体 旋转动画 */
+      /* 3D变换作用元素为  .box,  所以动画写在 .box内  */
+      animation: rotate 5s ease infinite;
+
+      
+      position: relative;
+    }
+
+    /* 3D变换作用元素为  .box,  y轴 为旋转轴*/
+    /* .scene:hover .box{
+      
+      transform: rotateY(-300deg);
+    } */
+
+    .box .item{
+      width: 200px;
+      height: 200px;
+      background-color: skyblue;
+
+      position: absolute;
+      /* 水平居中 */
+      left: 50%;
+      margin-left: -100px;
+
+      bottom: 0;
+
+      /*  每个item 3D旋转变换  */
+      /* 每个item 使用 自定义样式属性   calc(var(--i)*40deg) */
+      transform: rotateY(calc(var(--i)*40deg)) translateZ(300px);
+    }
+
+    
+    /* 
+    3D变换作用元素为.box，加属性transform-style: preserve-3d后, 
+    .box的子元素 也能3d变换
+    每个item旋转360/9=40deg后， 自己的z轴指向 也跟随旋转,   
+    再在 各自 z轴正向偏移一段距离
+    */
+    
+        
+    /* 没有 使用 自定义属性时  */
+    
+    /* 第一个item不用旋转 */
+    
+    /* 
+    .box .item:nth-child(1){
+      transform: translateZ(300px);
+    } 
+    */
+
+
+    /* 
+    .box .item:nth-child(2){
+      transform: rotateY(40deg) translateZ(300px);
+    }
+    .box .item:nth-child(3){
+      transform: rotateY(80deg) translateZ(300px);
+    }
+    .box .item:nth-child(4){
+      transform: rotateY(120deg) translateZ(300px);
+    } 
+    */
+
+
+    /*  使用 自定义样式属性 */
+    /* .box .item:nth-child(1){
+      transform: rotateY(calc(var(--i)*40deg)) translateZ(300px);
+    }
+    .box .item:nth-child(2){
+      transform: rotateY(calc(var(--i)*40deg)) translateZ(300px);
+    } */
+
+
+    /* 动画 */
+
+    /*  
+    rotateX(-10deg)顺序为先，先绕x轴旋转，再进行 木马旋转。可修改查看异同 
+    */
+
+    /*  rotateX(-10deg)绕x轴旋转， 是使 后面的item没有被覆盖 */
+    @keyframes rotate {
+      0%{
+        transform: rotateX(-10deg) rotateY(0);
+      }
+      100%{
+        transform: rotateX(-10deg) rotateY(-360deg);
+      }
+    }
+    
+    /* .box上悬停时，动画 暂停 */
+    .box:hover{
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="box">
+      <!--  9个子项  -->
+      <!--  自定义样式属性： 以--开头，属性值从0开始   -->
+      <div class="item" style="--i:0">
+        <img src="./24.images/3dmm-01.webp" alt="" width="200px" height="200px">      
+      </div>
+      <div class="item" style="--i:1">
+        <img src="./24.images/3dmm-02.webp" alt="" width="200px" height="200px">      
+      </div>
+      <div class="item" style="--i:2">
+        <img src="./24.images/3dmm-03.webp" alt="" width="200px" height="200px">      
+      </div>
+      <div class="item" style="--i:3">
+        <img src="./24.images/3dmm-04.webp" alt="" width="200px" height="200px">      
+      </div>
+      <div class="item" style="--i:4">
+        <img src="./24.images/3dmm-05.webp" alt="" width="200px" height="200px">      
+      </div>
+      <div class="item" style="--i:5">
+        <img src="./24.images/3dmm-06.webp" alt="" width="200px" height="200px">      
+      </div>
+      <div class="item" style="--i:6">
+        <img src="./24.images/3dmm-07.webp" alt="" width="200px" height="200px">      
+      </div>
+      <div class="item" style="--i:7">
+        <img src="./24.images/3dmm-08.webp" alt="" width="200px" height="200px">      
+      </div>
+      <div class="item" style="--i:8">
+        <img src="./24.images/3dmm-09.webp" alt="" width="200px" height="200px">      
+      </div>
+    </div>
+  </div>
+  
+  
+</body>
+</html>

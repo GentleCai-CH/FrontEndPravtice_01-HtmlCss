@@ -1,0 +1,144 @@
+
+<!-- 三种布局 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07.三种布局</title>
+  <style type="text/css">
+    /* 清除默认外边距 */
+    body,ul{  
+      margin: 0;
+      padding: 0;
+    }
+    ul{
+      list-style: none;
+    }
+
+    .container {
+      width: 1000px;
+      /* height: 1500px; */
+      /* border: 1px solid red; */
+      margin: 30px auto 0;
+    }
+    
+    /* 两列布局  */
+    .column2{
+      /* border: 2px solid red; */
+    }
+    .column2 .column2-1{
+      width: 700px;
+      height: 300px;
+      background-color: red;
+      float: left; /*  */
+    }
+
+    .column2 .column2-2{
+      width: 280px;
+      height: 300px;
+      background-color: yellow;
+      float: right;  /*  */
+    }
+
+    .clear{
+      clear: both;
+    }
+    
+    /* 三列布局  */
+    .column3{
+      /*border: 1px solid blue;*/  /* 另外一种方法，容器边框会影响布局 */
+      margin-top: 20px;
+    }
+    .column3 .column3-1{
+      width: 200px;
+      height: 300px;
+      background-color: aqua;
+      float: left; /*  */
+    }
+
+    .column3 .column3-2{
+      width: 400px;
+      height: 300px;
+      background-color: coral;
+      float: left;  /*  */
+
+      margin-left: 20px;
+      /* margin: 0 20px; */     /* 另外一种方法，容器边框会影响布局 */
+
+    }
+    .column3 .column3-3{
+      width: 360px;
+      height: 300px;
+      background-color: blueviolet;
+      float: right;  /*  */
+      /*float: left;*/     /* 另外一种方法，容器边框会影响布局 */
+    }
+
+    .clearFix::after{
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    /* 多列布局  */
+    .column-n{
+      /* border: 1px solid blue;   */
+      /* margin-top: 10px; */
+    }
+    .column-n ul{
+      /* background-color: blue; */
+    }
+    .column-n ul li{
+      /* border: 1px solid red ;  */
+
+      /*
+      最右边的列表项margin-right: 20px 分配给同行列表项 
+      180 + 20/5 = 184 
+      */
+      width: 184px;
+      height: 200px;
+      float: left;
+      margin-right: 20px;
+      margin-top: 20px;
+      background-color: aquamarine;
+    }
+    .column-n ul li:nth-child(5n){
+      margin-right: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="column2">
+      <div class="column2-1"></div>
+      <div class="column2-2"></div>
+       <div class="clear"></div> <!--清除浮动，避免后面元素塌陷。必须写在浮动元素后面 -->
+    </div>
+
+    <div class="column3 clearFix"><!--利用::after伪元素 清除浮动，避免后面元素塌陷。写在容器 -->
+      <div class="column3-1"></div>
+      <div class="column3-2"></div>
+      <div class="column3-3"></div>
+    </div>
+
+    <div class="column-n">
+      <ul class="clearFix">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>

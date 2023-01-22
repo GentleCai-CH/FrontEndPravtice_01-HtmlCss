@@ -1,0 +1,207 @@
+
+<!-- 27.微博热榜-flex布局 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>27.微博热榜-flex布局</title>
+  <style type="text/css">
+    /* 清除默认外边距 */
+    body{  
+      margin: 0;
+    }
+    a{
+      text-decoration: none;
+    }
+    .container{
+      /* 270-15-15 */
+      width: 240px;
+      /* height: 600px; */
+      /* border: 1px solid red; */
+      margin: 100px auto 0;
+      padding: 10px 15px;
+    }
+    .container .head{
+      height: 40px;
+      /* border: 1px solid red; */
+
+      display: flex;
+      /* 每个子元素 垂直居中 */
+      align-items: center;
+
+      border-bottom: 1px solid #f9f9f9;
+      cursor: pointer;
+    }
+    .container .head span.title{
+      /* 
+      flex-grow： 相对于 其余弹性项目的 增长量,且 所有子元素 将父元素占满。
+      数值为1表示 1倍数不增长, 宽度自适应,由自身内容而定
+      因此 两边 分开 
+      */
+      flex-grow: 1;
+      font-size: 14px;
+    }
+    .container .head span.sx{
+      font-size: 12px;
+      color: #939393;
+      margin-left: 5px;
+    }
+
+    .container .item{
+      height: 40px;
+      background-color: antiquewhite;
+      border-bottom: 1px solid #f9f9f9;
+      font-size: 12px;
+
+      /* 
+      使用flex布局，使子元素a标签 高度 默认和父元素.item 一样 
+      */
+      display: flex;
+    }
+    .container .item a{
+      width: 100%;
+      
+      /* 
+      使用flex布局，使子元素span 高度 默认和父元素a标签 一样 
+      */
+      display: flex;
+      align-items: center;
+    }
+
+    .item a span.icon{
+      font-size: 16px;
+      font-weight: bold;
+      color: #ff9406;
+      margin-right: 10px;
+    }
+    .item a span.title{
+      /* 
+      flex-grow： 相对于 其余弹性项目的 增长量,且 所有子元素 将父元素占满。
+      数值为1表示 1倍数不增长, 宽度自适应,由自身内容而定
+      因此 右边 分开到最右 
+      */
+      flex-grow: 1;
+      color: #333;
+      
+      /*  文字 不换行 */
+      white-space: nowrap;
+      overflow: hidden;
+
+      /* 文本溢出 用省略号表示 */
+      text-overflow: ellipsis;
+    }
+    .item a span.num{
+      color: #939393;
+
+      /*由于.title文字过多时会使.num缩小，
+      所以需要 固定 缩放不变 */
+      flex-shrink: 0;
+    }
+    .item a span.mark{
+      /* background-color: #ff9406; */
+      color: #fff;
+      padding: 2px 4px;
+      border-radius: 5px;
+      margin-left: 5px;
+    }
+
+    /* 
+    n只能是大于零的整数，所以-n+5 的值为 1-5
+
+    .item:nth-child(-n+5) 指 .item的父元素.container的 1-5个子元素, 包括.head;
+     */
+    .item:nth-child(-n+5) a span.icon{
+      color: red;
+    }
+
+    .bg1{
+      background-color: #ff9406;
+    }
+    .bg2{
+      background-color: rgb(243, 52, 84);
+    }
+    .bg3{
+      background-color: skyblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <div class="head">
+      <span class="title">微博热搜</span>
+      <img src="./27.images/icon-sx.png" alt="">
+      <span class="sx">点击刷新</span>
+    </div>
+
+    <div class="item">
+      <a href="">
+        <span class="icon"><img src="./27.images/icon_top.png" alt=""></span>
+        <span class="title">新的赶考之路考卷常出常新</span>
+        <span class="num">24万</span>
+        <span class="mark bg1">新</span>
+      </a>
+    </div>
+
+    <div class="item">
+      <a href="">
+        <span class="icon">1</span>
+        <span class="title">新的赶考之路考卷常出常新</span>
+        <span class="num">24万</span>
+        <span class="mark bg1">新</span>
+      </a>
+    </div>
+
+    <div class="item">
+      <a href="">
+        <span class="icon">2</span>
+        <span class="title">新的赶考之路考卷常出常新</span>
+        <span class="num">24万</span>
+        <span class="mark bg2">新</span>
+      </a>
+    </div>
+
+    <div class="item">
+      <a href="">
+        <span class="icon">3</span>
+        <span class="title">时候为忘记那些来我家玩没玩就好多次多次长沙市为时方法V型是</span>
+        <span class="num">24万</span>
+        <span class="mark bg3">新</span>
+      </a>
+    </div>
+
+    <div class="item">
+      <a href="">
+        <span class="icon">4</span>
+        <span class="title">新的赶考之路考卷常出常新</span>
+        <span class="num">24万</span>
+        <span class="mark bg1">新</span>
+      </a>
+    </div>
+
+    <div class="item">
+      <a href="">
+        <span class="icon">5</span>
+        <span class="title">新的赶考之路考卷常出常新</span>
+        <span class="num">24万</span>
+        <span class="mark bg3">新</span>
+      </a>
+    </div>
+
+    <div class="item">
+      <a href="">
+        <span class="icon">6</span>
+        <span class="title">新的赶考之路考卷常出常新</span>
+        <span class="num">24万</span>
+        <span class="mark bg1">新</span>
+      </a>
+    </div>
+
+  </div>
+  
+  
+</body>
+</html>

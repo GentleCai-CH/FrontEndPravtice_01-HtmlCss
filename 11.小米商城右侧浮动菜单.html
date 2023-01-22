@@ -1,0 +1,146 @@
+
+<!-- 11.小米商城右侧浮动菜单 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11.小米商城右侧浮动菜单</title>
+
+  <!-- 引用 iconfont.css  -->
+  <link rel="stylesheet" href="./11.资料以及js代码/iconfont/iconfont.css">
+  
+  <style type="text/css">
+    /* 清除默认外边距 */
+    body{  
+      margin: 0;
+      background-color: #ddd;
+      height: 2000px;
+    }
+    ul{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    p{
+      margin: 0;
+      padding: 0;
+    }
+    a{
+      text-decoration: none;
+    }
+    .sidebar{
+      width: 85px;
+      /* height: 500px; */
+      /* background-color: #fff; */
+      position: fixed;
+      right: 20px;
+      bottom: 100px;
+    }
+    .sidebar ul{
+      /* border: 1px solid red; */
+    }
+    .sidebar ul li{
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      width: 85px;
+      height: 85px;
+
+      position: relative;
+    }
+    .sidebar ul li:last-child{
+      margin-top: 20px;
+    }
+
+    /* 设置图标 */
+    .sidebar ul li span{
+      /* background-color: aqua; */
+      
+      /* 转为 块元素 使其有宽高*/
+      display: block;
+
+      width: 85px;
+      height: 50px;
+
+      /* 垂直居中 */
+      line-height: 50px;
+
+      /* 水平居中 */
+      text-align: center;
+
+      font-size: 28px; /* 设置图标 大小 */
+      color: #666;  /* 设置图标  颜色*/
+
+    }
+
+    .sidebar ul li p{
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+    }
+    .sidebar ul li:hover span,.sidebar ul li:hover p{
+      color: hotpink;
+    }
+    .sidebar ul li .weixin{
+      width: 100px;
+      height: 100px;
+      /* border-color: red; */
+
+      position: absolute; /*  相对li定位*/
+      top: 0;
+      left: -130px;  /*  100px + 15px + 15px*/
+      padding: 0 15px;
+      display: none;
+    }
+    .sidebar ul li:hover .weixin{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <ul>
+      <li>
+        <span class="iconfont icon-shouji"></span>
+        <p>手机app</p>
+
+        <div class="weixin">
+          <img src="./11.资料以及js代码/images/wx.png" alt="" width="100px">
+        </div>
+      </li>
+      <li>
+        <a href="">
+          <span class="iconfont icon-touxiang"></span>
+          <p>个人中心</p>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <span class="iconfont icon-gongju"></span>
+          <p>售后服务</p> 
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <span class="iconfont icon-kefu"></span>
+          <p>人工客服</p>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <span class="iconfont icon-gouwuche"></span>
+          <p>购物车</p>
+        </a>
+      </li>
+      <li>
+        <span class="iconfont icon-dingbu"></span>
+        <p>回到顶部</p>
+      </li>
+    </ul>
+  </div>
+  
+  
+</body>
+</html>

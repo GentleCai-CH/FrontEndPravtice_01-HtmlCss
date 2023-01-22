@@ -1,0 +1,87 @@
+
+<!-- 20.全屏动画 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>20.全屏动画</title>
+
+  <!-- animate.css插件:https://animate.style/
+      官方GitHub下载zip包：https://github.com/animate-css/animate.css ，
+      压缩后 引用 animate.min.css文件，然后引用样式 -->
+  <link rel="stylesheet" href="./20.资料/css/animate.min.css">
+
+  <style type="text/css">
+    /* 清除默认外边距 */
+    body{  
+      margin: 0;
+      overflow: hidden; /* 清除 animate.css动画时超出窗体而出现滚动条 */
+    }
+    .container{
+      width: 100%;
+      height: 100vh;
+      background-color: skyblue;
+
+      position: relative;
+    }
+    .box{
+      width: 1080px;
+      height: 540px;
+      background-color: beige;
+
+      position: absolute;
+      top: 50%;
+      margin-top: -270px;
+      left: 50%;
+      margin-left: -540px;
+    }
+
+    .item{
+      /* 设置合理宽高、直接 左浮动，实现 不规则子项 合理排列 */
+      float: left;
+      margin: 10px;
+    }
+
+    .item1{
+      width: 250px;
+      height: 520px;
+      background-image: linear-gradient(to bottom,pink,#fff,pink);
+    }
+    .item2,.item3{
+      width: 385px;
+      height: 250px;
+      background-image: linear-gradient(to bottom,pink,#fff);
+    }
+    .item4,.item5,.item6{
+      width: 250px;
+      height: 250px;
+      background-image: linear-gradient(to bottom,#fff,pink);
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <!-- animate__animated是引用animate.css插件的样式 -->
+      <div class="item item1 animate__animated animate__backInDown">
+      </div>
+      <div class="item item2 animate__animated animate__backInLeft">
+      </div>
+      <div class="item item3 animate__animated animate__backInRight">
+      </div>
+      <div class="item item4 animate__animated animate__backInUp">
+      </div>
+      <div class="item item5 animate__animated animate__wobble">
+      </div>
+      <div class="item item6 animate__animated animate__bounceInRight">
+      </div>
+    </div>
+  </div>
+  
+  
+</body>
+</html>

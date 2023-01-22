@@ -1,0 +1,80 @@
+
+<!-- 商品展示页 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03.商品展示页</title>
+  <style type="text/css">
+    /* 清除默认外边距 */
+    body,p，h3{  
+      margin: 0;
+    }
+    a {
+      text-decoration: none;
+      display: block; /*转为 块级元素，使其有宽高*/
+    }
+
+    .product {
+      width: 268px;
+      /* height: 500px; */
+      /* background-color: red; */
+      margin: 50px auto 0; /* 左右居中*/
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    .product p.decs {
+      /* border: 1px solid red; */
+      color: #845f3f;
+      font-size: 16px;
+    }
+    .product .pro-text {
+      /* height: 100px; */
+      background-color: #f8f8f8;
+      margin-top: 20px;
+      padding: 15px;
+    }
+    .product .pro-text .pro-mark {
+      font-size: 0; /*去掉图片默认空隙*/
+    }
+    .product .pro-text .pro-mark img {
+      margin: 0 2px; 
+    }
+    .product .pro-text h3 {
+      font-size: 20px;
+      font-weight: 400px;
+      /* border: 1px solid red; */
+      margin: 15px;
+      color: #000;
+    }
+    .product .pro-text p {
+      color: #a92112;
+      font-size: 20px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="product">
+    <a href="">
+      <img src="./03.images/kettle.png" alt="水壶" width="195px">
+      <p class="decs">快速饮水，安心饮用</p>
+      <div class="pro-text">
+        <div class="pro-mark">
+          <img src="/03.images/live.png" alt="直播中" height="20">
+          <img src="/03.images/odds.png" alt="特惠" height="20">
+          <img src="/03.images/30day.png" alt="30天保价" height="20">
+          <img src="/03.images/server.png" alt="售后免邮" height="20">
+        </div>
+        <h3>云米电水壶</h3>
+        <p>￥59</p>
+      </div>
+    </a>
+  </div>
+  
+  
+</body>
+</html>

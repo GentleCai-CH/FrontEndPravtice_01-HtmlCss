@@ -1,0 +1,143 @@
+
+<!-- 22.吃豆游戏动画 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>22.吃豆游戏动画</title>
+  <style type="text/css">
+    /* 清除默认外边距 */
+    body{  
+      margin: 0;
+    }
+    .eat-peas{
+      width: 600px;
+      height: 200px;
+      background-color: #ddd;
+      margin: 100px auto 0;
+
+      position: relative;
+    }
+
+    .eat-peas .head{
+      width: 200px;
+      height: 200px;
+      /* border: 1px solid red; */
+
+      /* 变为 圆形 */
+      border-radius: 50%;
+      overflow: hidden;
+
+      position: relative;
+      z-index: 2;
+    }
+    .eat-peas .head::before{
+      content: '';
+      /* 伪元素 默认为内联元素，转为 块元素才有宽高 */
+      display: block;
+      width: 200px;
+      height: 100px;
+      background-color: tomato;
+
+      /* 变换原点 */
+      transform-origin: bottom center;
+      transform: rotate(0);
+
+      animation: rotate1 0.4s ease infinite alternate;
+      /*  infinite：循环，alternate：反向交替 */
+    }
+    .eat-peas .head::after{
+      content: '';
+      display: block;
+      width: 200px;
+      height: 100px;
+      background-color: yellow;
+
+      transform-origin: top center;
+      transform: rotate(0);
+
+      animation: rotate2 0.4s ease infinite alternate;
+      /*  infinite：循环，alternate：反向交替 */
+    }
+
+    @keyframes rotate1{
+      0%{
+        transform: rotate(0deg);
+
+      }
+
+      100%{
+        /* 逆时针 为负 */
+        transform: rotate(-30deg);
+      }
+    }
+    
+    @keyframes rotate2{
+      0%{
+        transform: rotate(0deg);
+
+      }
+
+      100%{
+        transform: rotate(30deg);
+      }
+    }
+
+    .head .eye{
+      width: 20px;
+      height: 20px;
+      background-color: #000;
+      border: 1px solid #fff;
+      border-radius: 50%;
+
+      position: absolute;
+      top: 20px;
+      left: 90px;
+    }
+
+    .eat-peas .peas{
+      width: 40px;
+      height: 40px;
+      background-color: tomato;
+      border-radius: 50%;
+
+      position: absolute;
+      top: 50%;
+      margin-top: -20px;
+      left: 120px;
+
+      /*  用 盒子阴影 box-shadow 添加 豆豆数 */
+      /*  box-shadow：水平距离、垂直距离、模糊距离、颜色 */
+      box-shadow: 
+      80px 0 0 blue,160px 0 0 tomato,
+      240px 0 0 blue,320px 0 0 tomato,400px 0 0 blue;
+
+      animation: move 0.8s ease infinite;
+    }
+    
+    @keyframes move {
+      0%{
+        transform: translateX(0);
+      }
+      100%{
+        transform: translateX(-80px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="eat-peas">
+    <div class="head">
+      <div class="eye">
+      </div>
+    </div>
+
+    <div class="peas"></div>
+  </div>
+  
+  
+</body>
+</html>

@@ -1,0 +1,152 @@
+
+<!-- 19.鼠标悬停-缩放动画 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>19.鼠标悬停-缩放动画</title>
+  <style type="text/css">
+    /* 清除默认外边距 */
+    body,h3,p{  
+      margin: 0;
+    }
+    .box{
+      width: 960px;
+      height: 300px;
+      /* border: 1px solid red; */
+      margin: 100px auto 0;
+    }
+    .box .item{
+      width: 300px;
+      height: 300px;
+      /* background: aqua; */
+      float: left;
+      margin: 0 10px;
+
+      overflow: hidden;
+
+      position: relative;
+    }
+    /* 用 伪元素 清除浮动 */
+    .clearfix::after{
+      content: '';
+      /* 伪元素 是 内联元素，转为 块元素 */
+      display: block;
+      clear: both;
+    }
+
+    .item:hover img{
+      transform: scale(1.2);
+      
+      /* transition: all ease .5s; */
+      transition: transform ease .5s;
+    }
+    .item .item-mask{
+      width: 300px;
+      height: 300px;
+
+      position: absolute;
+      top: -5px;
+      left: -5px;    
+      /* 边框为 5px,撑大了宽高，使得相对定位有偏移，所以 由0改为-5px*/
+
+      background: rgba(0, 0, 0, 0);
+
+      transition: all ease .5s;
+    }
+    .item:hover .item-mask{
+      background: rgba(0, 0, 0, 0.5);
+      transform: scale(.8);
+      border: 5px solid #fff;
+      
+      /* 盒子阴影： 水平偏移、垂直偏移、模糊度、大小、颜色*/
+      box-shadow: 0 0 0 40px rgba(255, 255, 255, 0.5);
+
+    }
+
+    .item .item-txt h3{
+      /* border: 1px solid #000; */
+      font-size: 18px;
+      color: #fff;
+
+      position: absolute;
+      top: 80px;
+      left: 40px; 
+      right: 40px;
+
+      transform: scale(1.2);
+      /* 透明  不透明度为0 */
+      opacity: 0;
+
+      transition: all ease .5s;
+    }
+    .item:hover .item-txt h3{
+      transform: scale(1);
+      opacity: 1;
+    }
+    .item .item-txt p{
+      /* border: 1px solid #000; */
+      color: #fff;
+      font-size: 14px;
+
+      position: absolute;
+      top: 110px;
+      left: 40px;
+      right: 40px;
+
+      transform: scale(1.2);
+      opacity: 0;
+
+      transition: all ease .5s;
+
+    }
+    .item:hover .item-txt p{
+      transform: scale(1);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="box clearfix">
+    <div class="item">
+      <img src="./19.images/scale1.jpg" alt="">
+      <div class="item-mask"></div> 
+      <div class="item-txt">
+        <h3>金凤蝶</h3>
+        <p>
+          金凤蝶，Papilio machaon Linnaeus，又名黄凤蝶、茴香凤蝶、胡萝卜凤蝶，属鳞翅目，凤蝶科。因其体态华贵，花色艳丽而得名。 有“能飞的花朵”、“昆虫美术家”的雅号。以伞形花科植物（茴香、胡萝卜、芹菜等）的花蕾、嫩叶和嫩芽梢为寄主。
+        </p>
+      </div>
+    </div>
+
+    
+    <div class="item">
+      <img src="./19.images/scale2.jpg" alt="">
+      <div class="item-mask"></div> 
+      <div class="item-txt">
+        <h3>小黄菊</h3>
+        <p>
+          小黄菊（拉丁学名：Pyrethrum pulchrum Ledeb.）又名美丽匹菊，为菊科匹菊属多年生草本，高15-35厘米。有根状茎。茎单生或少数茎成簇生，直立，不分枝，有弯曲的长单毛。
+        </p>
+      </div>
+    </div>
+
+    
+    <div class="item">
+      <img src="./19.images/scale3.jpg" alt="">
+      <div class="item-mask"></div> 
+      <div class="item-txt">
+        <h3>格桑花</h3>
+        <p>
+          格桑花又称格桑梅朵，具体为何种植物存在广泛的争议。在藏语中，“格桑”是“美好时光”或“幸福”的意思，“梅朵”是花的意思，所以格桑花也叫幸福花，长期以来一直寄托着藏族人民期盼幸福吉祥的美好情感
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  
+</body>
+</html>

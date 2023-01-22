@@ -1,0 +1,87 @@
+
+<!-- 百度新闻 序号列表 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02.百度新闻序号列表</title>
+  <style type="text/css">
+    /* 清除默认边距 */
+    body,h3,ul {
+      margin: 0;
+      padding: 0;
+    }
+    .news {
+      width: 360px;  /* 内边距会撑大边框盒，宽度390 减去 内边距 15+15 */
+      /* height: 400px; */
+      /* background-color: red; */
+      margin: 50px auto 0;
+      border: 1px solid #ddd;
+      padding: 15px;
+    }
+    .news h3 {
+      /* border: 1px solid red; */
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .news ul {
+      /* border: 1px solid #000; */
+      list-style: none;
+    }
+
+    .news ul li {
+      border-bottom: 1px dotted #ddd;
+      font-size: 16px;
+
+      /* 垂直对齐 */
+      height: 35px;
+      line-height: 35px;
+    }
+    .news ul li a {
+      color: black;
+      text-decoration: none;
+    }
+
+    .news ul li a:hover {
+      color: red;;
+    }
+
+    .news ul li a span {
+      /* border: 1px solid red; */
+      margin: 10px;
+      font-weight: bold;
+    }
+
+    .col1 {
+      color: red;
+    }
+    .col2 {
+      color: #ff5c55;
+    }
+
+    .col3 {
+      color: #ffa552;
+    }
+  </style>
+</head>
+<body>
+  <div class="news">
+    <h3>百度新闻热榜</h3>
+
+
+    <ul>
+      <li><a href=""><span class="col1">1</span>阿根廷vs法国爆</a></li>
+      <li><a href=""><span class="col2">2</span>梅西成世界杯出场王</a></li>
+      <li><a href=""><span class="col3">3</span>10问了解新冠复阳和再感染</a></li>
+      <li><a href=""><span>4</span>布洛芬巨头发话：月底前产能翻番热</a></li>
+      <li><a href=""><span>5</span>C罗支持阿根廷夺冠</a></li>
+      <li><a href=""><span>6</span>世界杯决赛门票炒到近10万人民币</a></li>
+      <li><a href=""><span>7</span>阳过之后，你需要换一只牙刷吗？</a></li>
+      <li><a href=""><span>8</span>刘畊宏在卡塔尔赛车意外侧翻</a></li>
+    </ul>
+  </div>
+</body>
+</html>

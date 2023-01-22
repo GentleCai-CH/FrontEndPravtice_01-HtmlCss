@@ -1,0 +1,97 @@
+
+<!-- 06.选项卡菜单 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06.选项卡菜单</title>
+  <style type="text/css">
+    /* 清除默认外边距 */
+    body,p,h3{  
+      margin: 0;
+    }
+    .tab{
+      width: 800px;
+      /* height: 50px; */
+      background-color: #f7f7f7;
+      border-radius: 50px;
+      margin: 50px auto 0;
+      text-align: center;
+      font-size: 0;/*统配 不同浏览器对空格回车形成的空白*/
+    }
+    .tab span {
+      /* border: 1px solid red; */
+      display: inline-block;  /*行内元素 转为 行内块，使其 有宽高*/
+      height: 40px;
+      line-height: 40px; /*文字垂直居中*/
+
+      /* width: 40px; */
+      padding: 0 40px;  /*内边距 代替 自适应宽度*/
+      
+      font-size: 16px;/*统配 不同浏览器对空格回车形成的空白*/
+      border-radius: 50px;
+    }
+    .tab span i{
+      /* border: 1px solid red; */
+      display: inline-block;  /*行内元素 转为 行内块，使其 有宽高*/
+      width: 26px;
+      height: 25px;
+      background-image: url(/06.images/icon.png);
+      
+      vertical-align: middle;
+    }
+
+    /* .tab span i.icon1{
+      background-image: url(/06.images/icon.png);
+    } */
+    .tab span i.icon2{
+      /* background-image: url(/06.images/icon.png); */
+      background-position: -26px 0;
+    }
+    .tab span i.icon3{
+      /* background-image: url(/06.images/icon.png); */
+      background-position: -52px 0;
+    }
+    .tab span i.icon4{
+      /* background-image: url(/06.images/icon.png); */
+      background-position: -78px 0;
+    }
+    .tab span i.icon5{
+      /* background-image: url(/06.images/icon.png); */
+      background-position: -104px 0;
+    }
+    .tab span.current {
+      background-color: #fe94a9;
+      color: #fff;
+    }
+    .tab span.current i.icon1 {
+      background-position: 0px -26px;    
+    }
+    
+    .tab span.current i.icon2 {
+      background-position: -26px -26px;    
+    }
+    .tab span.current i.icon3 {
+      background-position: -52px -26px;    
+    }
+    .tab span.current i.icon4 {
+      background-position: -78px -26px;    
+    }
+    .tab span.current i.icon5 {
+      background-position: -104px -26px;    
+    }
+  </style>
+</head>
+<body>
+  <div class="tab">
+    <span class="current"><i class="icon1"></i>备孕期间</span>
+    <span><i class="icon2"></i>怀孕</span>
+    <span><i class="icon3"></i>0-1岁</span>
+    <span><i class="icon4"></i>1-2岁</span>
+    <span><i class="icon5"></i>2-3岁</span>
+  </div>
+</body>
+</html>

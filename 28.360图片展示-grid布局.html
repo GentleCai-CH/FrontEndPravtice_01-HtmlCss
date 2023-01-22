@@ -1,0 +1,142 @@
+<!-- 28.360图片展示-grid布局 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>28.360图片展示-grid布局</title>
+  <style type="text/css">
+    /* 清除默认外边距 */
+    body{  
+      margin: 0;
+    }
+    .container{
+      width: 100%;
+      /* height: 700px; */
+      /* background-color: aqua; */
+      margin: 100px auto 0;
+
+      display: grid;
+
+      /*  盒子 水平居中 */
+      justify-content: center;
+
+
+      /*   行
+      
+      第一行 当前行 图片高度、 第二行 高度计(365-207-3=155)、  第三行  当前行 图片高度 */
+      grid-template-rows: 207px 155px ;
+
+      
+      /*   列
+
+      第一列  当前列 图片宽度、   第二列   当前列 图片宽度、 第三列  当前列 图片宽度、   
+      第四列 宽度计算(420-299-3=118)、 第五列  宽度计算(417-118-3=296)  */
+      grid-template-columns: 420px 365px 299px 118px 296px;
+
+
+      
+      /*  区域合并：相同值 表示合并, 第一列合并、第二列的一二行合并.... */
+
+      /*  
+      '1 2 3 4 5'     
+      '1 2 3 4 5'   -->  
+      '1 2 3 4 5'   -->
+          
+      'a b d d f'
+      'a b e g g'
+      'a c e g g'
+
+      */
+
+      grid-template-areas: 'a b d d f'  
+                           'a b e g g'   
+                           'a c e g g';
+
+      /*  行、列 间距：gap、rows-gap、columns-gap  */
+      gap: 3px 3px;
+
+    }
+
+    .item:nth-child(1){
+      /* 指定合并区域 */
+      grid-area: a;
+    }
+    .item:nth-child(2){
+      /* 指定合并区域 */
+      grid-area: b;
+    }
+    .item:nth-child(3){
+      /* 指定合并区域 */
+      grid-area: c;
+    }
+    .item:nth-child(4){
+      /* 指定合并区域 */
+      grid-area: d;
+    }
+    .item:nth-child(5){
+      /* 指定合并区域 */
+      grid-area: e;
+    }
+    .item:nth-child(6){
+      /* 指定合并区域 */
+      grid-area: f;
+      background-color: #ddd;
+    }
+    .item:nth-child(7){
+      /* 指定合并区域 */
+      grid-area: g;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <div class="item">
+      <a href="">
+        <img src="./28.images/grid-01.jpg" alt="">
+      </a>
+    </div>
+    
+    <div class="item">
+      <a href="">
+        <img src="./28.images/grid-02.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="item">
+      <a href="">
+        <img src="./28.images/grid-03.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="item">
+      <a href="">
+        <img src="./28.images/grid-04.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="item">
+      <a href="">
+        <img src="./28.images/grid-05.jpg" alt="">
+      </a>
+    </div>
+
+    <div class="item">
+      <p>不会不会被苏经贸</p>
+      <p>手机号虚报什么立马就</p>
+      <p>计算函数官翻机</p>
+    </div>
+
+    <div class="item">
+      <a href="">
+        <img src="./28.images/grid-06.jpg" alt="">
+      </a>
+    </div>
+  </div>
+  
+  
+</body>
+</html>

@@ -1,0 +1,264 @@
+
+<!-- 26.头条视频列表-flex布局 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>26.头条视频列表-flex布局</title>
+  <style type="text/css">
+    /* 清除默认外边距 */
+    body{  
+      margin: 0;
+    }
+    a{
+      text-decoration: none;
+    }
+    .box{
+      width: 320px;
+      /* height: 600px; */
+      /* border: 1px solid red; */
+      margin: 100px auto 0;
+    }
+    .head{
+      display: flex;
+
+      /*  flex布局  垂直居中 */
+      align-items: center;
+    }
+    .head span.head-title{
+
+      /* 
+      flex-grow： 相对于 其余弹性项目的 增长量,且 所有子元素 将父元素占满。
+      数值为1表示 1倍数不增长, 宽度自适应,由自身内容而定
+      因此 两边 分开 
+      */
+      flex-grow: 1;
+
+      font-size: 20px;
+      margin-left: 10px;
+    }
+    .head span.head-sx{
+      font-size: 16px;
+      color: red;
+      margin-left: 5px;
+    }
+
+    .content{
+      height: 94px;
+      /* background-color: #ddd; */
+      margin-top: 20px;
+
+      display: flex;
+    }
+
+    .content .con-img{
+      /*  左边宽度固定 */
+      width: 126px;
+      height: 94px;
+      /* border: 1px solid red; */
+      margin-right: 10px;
+
+      /*  右边内容增加，左边会缩小。控制 其 不进行缩放 */
+      flex-shrink: 0;
+    }
+
+    .content .con-img img{
+      width: 100%;
+      height: 100%;
+
+      /*  图片裁剪，避免图片宽高固定后 变形 */
+      object-fit: cover;
+    }
+
+    .content .con-txt{
+      /* border: 1px solid skyblue; */
+
+      /*  右边宽度自适应 */
+      flex-grow: 1;
+
+      /* 设置flex布局 */
+      display: flex;
+      /* 改变flex主轴为y轴，子元素 宽度 会继承 父元素 */
+      flex-direction: column;
+    }
+    .content .con-txt a{
+      font-size: 16px;
+      color: #222;
+
+      /* 限制 两行的高度，避免文字过多换行 到第三行 */
+      line-height: 22px;
+      max-height: 44px;
+      
+
+
+      /* 文字过多，转为 省略号 */
+
+      /*  弹性盒子模型显示  */
+      display: -webkit-box;
+      /* 设置 弹性盒子对象 的 子元素 的 排列方式  */
+      -webkit-box-orient: vertical;
+      /*  限制 块级元素 文本行数  */
+      -webkit-line-clamp: 2;
+
+      /*  超出隐藏 */
+      overflow: hidden;
+      /*  文本溢出 转为省略号 */
+      text-overflow: ellipsis;
+    }
+    .content .con-txt span.comment{
+      font-size: 12px;
+      background-color: #fff2f2;
+      color: #f04142;
+      padding: 3px 6px;
+      border-radius: 5px;
+      margin-top: 6px;
+
+      /*  
+      flex布局主轴变为 y轴后，该子元素 宽度 继承父元素，即100%，背景100%。
+      
+      所以需要 控制其 宽度 为自身宽度
+      */
+      align-self: flex-start;
+    }
+
+    .content .con-txt .desc{
+      font-size: 14px;
+      color: #999;
+      margin-top: 6px;
+      
+      display: flex;
+      /* 子元素  左右两边 分开   用在 父元素 上*/
+      justify-content: space-between;
+      /* flex-grow:1 也可以使两边分开，用在 子元素 上 */
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+
+    <div class="head">
+      <img src="./26.images/icon-play.png" alt="" width="22px">
+      <span class="head-title">热门视频</span>
+
+      <img src="./26.images/icon-sx2.png" alt="" width="16px">
+      <span class="head-sx">换一换</span>
+    </div>
+
+    <div class="content">
+      <div class="con-img">
+        <a href="">
+          <img src="./26.images/toutiao-01.jpeg" alt="">
+        </a>
+      </div>
+
+      <div class="con-txt">
+        <a href="">
+          司马南：中国与俄罗斯的底线
+        </a>
+
+        <span class="comment">1万评论</span>
+
+        <div class="desc">
+          <span>148万次观看</span>
+          <span>司马南频道</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="content">
+      <div class="con-img">
+        <a href="">
+          <img src="./26.images/toutiao-02.jpeg" alt="">
+        </a>
+      </div>
+
+      <div class="con-txt">
+        <a href="">
+          无论腌什么鱼，最忌放盐和料酒腌制，大厨教你绝招，鱼肉鲜嫩不腥
+        </a>
+
+        <span class="comment">1万评论</span>
+
+        <div class="desc">
+          <span>148万次观看</span>
+          <span>司马南频道</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="content">
+      <div class="con-img">
+        <a href="">
+          <img src="./26.images/toutiao-03.jpeg" alt="">
+        </a>
+      </div>
+
+      <div class="con-txt">
+        <a href="">
+          司马南：中国与俄罗斯的底线
+        </a>
+
+        <span class="comment">1万评论</span>
+
+        <div class="desc">
+          <span>148万次观看</span>
+          <span>司马南频道</span>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="content">
+      <div class="con-img">
+        <a href="">
+          <img src="./26.images/toutiao-04.jpeg" alt="">
+        </a>
+      </div>
+
+      <div class="con-txt">
+        <a href="">
+          无论腌什么鱼，最忌放盐和料酒腌制，大厨教你绝招，鱼肉鲜嫩不腥
+        </a>
+
+        <span class="comment">1万评论</span>
+
+        <div class="desc">
+          <span>148万次观看</span>
+          <span>司马南频道</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="content">
+      <div class="con-img">
+        <a href="">
+          <img src="./26.images/toutiao-05.jpeg" alt="">
+        </a>
+      </div>
+
+      <div class="con-txt">
+        <a href="">
+          无论腌什么鱼，最忌放盐和料酒腌制，大厨教你绝招，鱼肉鲜嫩不腥
+        </a>
+
+        <span class="comment">1万评论</span>
+
+        <div class="desc">
+          <span>148万次观看</span>
+          <span>司马南频道</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  
+  
+</body>
+</html>

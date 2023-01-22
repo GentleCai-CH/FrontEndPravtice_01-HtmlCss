@@ -1,0 +1,255 @@
+
+<!-- 25.酷狗音乐列表-flex布局 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>25.酷狗音乐列表-flex布局</title>
+  <style type="text/css">
+    /* 清除默认外边距 */
+    body{  
+      margin: 0;
+    }
+    a{
+      text-decoration: none;
+    }
+    .container{
+      width: 100%;
+
+      /* 设置 可调的最小宽度，避免屏幕太窄时每个item凑在一起   （150+10+10）*4=680px  */
+      min-width: 680px;
+
+      /* height: 600px; */
+      /* border: 1px solid red; */
+      margin-top: 100px;
+
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .container .item:nth-child(odd){
+      /* background-color: aqua; */
+    }
+
+    .container .item{
+      width: 25%;
+      display: flex;  
+      /* 水平居中 */
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .container .item .content{
+      width: 150px;
+      /* border: 1px solid red; */
+
+      display: flex;
+      /*  
+      改变 flex主轴为y轴，其子元素 宽度 继承父元素，即100%。
+      */
+      flex-direction: column;
+    }
+
+    .content a.con-img{
+
+      /*  a标签继承 flex，所以有宽高？ */
+      height: 150px;
+      /* background-color: #ddd; */
+
+      position: relative;
+    }
+
+    .content a.con-img img{
+      border-radius: 10px;
+    }
+
+    /* 用伪元素添加 一个 半透明遮罩，使图片左下角文字清晰显示 */
+    .content a.con-img::after{
+      content: '';
+      display: block;
+      width: 100%;
+      height: 50%;
+      
+      /*  白色透明  rgba:255,255,255,0  */
+      background-image: linear-gradient(to bottom,
+      rgba(255,255,255,0),rgba(0,0,0,0.5));
+      border-radius: 0 0 10px 10px;
+
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+
+    .content a.con-img span{
+      font-size: 14px;
+      color: #fff;
+      /* background-color: red; */
+
+      display: flex;
+
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      z-index: 2;
+    }
+
+    .content a.con-img span img{
+      margin-right: 5px;
+    }
+    
+    .content a.con-title{
+      font-size: 14px;
+      color: #333;
+      margin-top: 10px;
+    }
+    .content a.con-title:hover{
+      color: rgb(10, 173, 248);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="item">
+      <div class="content">
+        
+        <a href="" class="con-img">
+          <img src="./25.images/flex-01.jpg" alt="">
+          <span>
+            <img src="./25.images/icon_play.png" alt="" width="14px">
+            244.0万
+          </span>
+        </a>
+
+        <a href="" class="con-title">
+          催眠：delta脑波音乐减压深度睡眠
+        </a>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="content">
+        
+        <a href="" class="con-img">
+          <img src="./25.images/flex-02.jpg" alt="">
+          <span>
+            <img src="./25.images/icon_play.png" alt="" width="14px">
+            244.0万
+          </span>
+        </a>
+
+        <a href="" class="con-title">
+          催眠：delta脑波音乐减压深度睡眠
+        </a>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="content">
+        
+        <a href="" class="con-img">
+          <img src="./25.images/flex-03.jpg" alt="">
+          <span>
+            <img src="./25.images/icon_play.png" alt="" width="14px">
+            244.0万
+          </span>
+        </a>
+
+        <a href="" class="con-title">
+          催眠：delta脑波音乐减压深度睡眠
+        </a>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="content">
+        
+        <a href="" class="con-img">
+          <img src="./25.images/flex-04.jpg" alt="">
+          <span>
+            <img src="./25.images/icon_play.png" alt="" width="14px">
+            244.0万
+          </span>
+        </a>
+
+        <a href="" class="con-title">
+          催眠：delta脑波音乐减压深度睡眠
+        </a>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="content">
+        
+        <a href="" class="con-img">
+          <img src="./25.images/flex-05.jpg" alt="">
+          <span>
+            <img src="./25.images/icon_play.png" alt="" width="14px">
+            244.0万
+          </span>
+        </a>
+
+        <a href="" class="con-title">
+          催眠：delta脑波音乐减压深度睡眠
+        </a>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="content">
+        
+        <a href="" class="con-img">
+          <img src="./25.images/flex-06.jpg" alt="">
+          <span>
+            <img src="./25.images/icon_play.png" alt="" width="14px">
+            244.0万
+          </span>
+        </a>
+
+        <a href="" class="con-title">
+          催眠：delta脑波音乐减压深度睡眠
+        </a>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="content">
+        
+        <a href="" class="con-img">
+          <img src="./25.images/flex-07.jpg" alt="">
+          <span>
+            <img src="./25.images/icon_play.png" alt="" width="14px">
+            244.0万
+          </span>
+        </a>
+
+        <a href="" class="con-title">
+          催眠：delta脑波音乐减压深度睡眠
+        </a>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="content">
+        
+        <a href="" class="con-img">
+          <img src="./25.images/flex-08.jpg" alt="">
+          <span>
+            <img src="./25.images/icon_play.png" alt="" width="14px">
+            244.0万
+          </span>
+        </a>
+
+        <a href="" class="con-title">
+          催眠：delta脑波音乐减压深度睡眠
+        </a>
+      </div>
+    </div>
+
+  </div>
+  
+</body>
+</html>

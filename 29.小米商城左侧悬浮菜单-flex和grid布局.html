@@ -1,0 +1,370 @@
+
+<!-- 29.小米商城左侧悬浮菜单-flex和grid布局 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>29.小米商城左侧悬浮菜单-flex和grid布局</title>
+  <style type="text/css">
+    /* 清除默认外边距 */
+    body{  
+      margin: 0;
+    }
+    a{
+      text-decoration: none;
+    }
+    .menu{
+      width: 230px;
+      height: 420px;
+      /* border: 1px solid red; */
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px 0;
+      margin: 50px 0 0 50px;
+      
+      position: relative;
+    }
+
+    .menu .item{
+      /* border: 1px solid red; */
+      height: 42px;
+      color: #fff;
+      font-size: 14px;
+
+      /*  垂直居中  */
+      line-height: 42px;
+
+      padding-left: 30px;
+      background: url(./29.images/right-jiantou.png) no-repeat 200px 10px;
+
+      cursor: pointer;
+
+    }
+
+    .menu .item:hover{
+      background-color: #ff6700;
+      background-image: url(./29.images/right-jiantou2.png);
+    }
+
+    /* 每个列表项 展开的内容 */
+    .nav{
+
+      /* 展开后 只有一列时的宽度 */
+      min-width: 250px;
+
+      /* .menu的 高度 加 上下内边距 */
+      height: 460px;   
+
+      background-color: #fff;
+      
+      border: 1px solid #666;
+      /*  设置 怪异盒，避免边框 撑大宽高  */
+      box-sizing: border-box;
+
+      position: absolute;
+      top: 0;
+      left: 230px;
+
+      display: grid;
+      /*  最多6行，列数不确定  */
+      grid-template-rows: repeat(6,1fr);
+
+      /* 只有一列 */
+      /* grid-template-columns: 250px; */
+
+
+      /* 按列 自动浮动，  自动换列 排列 */
+      grid-auto-flow: column;
+
+      /*  设置 列宽  */
+      grid-auto-columns: 250px;
+
+      display: none;
+    }
+    
+    .item .nav a{
+      /* border: 1px solid aqua; */
+      color: #000;
+
+      /* flex布局 */
+      display: flex;
+      /*  
+      img没有设置高度，设置 flex布局后，img高度跟随父元素a标签，导致图片变形
+      因此 设置子元素 垂直居中
+      */
+      align-items: center;
+    }
+    
+    .item .nav a:hover{
+      color: #ff6700;
+    }
+    .item .nav a img{
+      margin-right: 10px;
+    }
+
+    .item:hover .nav{
+      /*  设置 悬停时 显示 展开导航， 
+      .nav是grid布局, 所以需要用 display: grid 进行显示, 不是 display: block */
+      display: grid;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <div class="item">
+      手机
+      <div class="nav">
+        <a href="">
+          <img src="./29.images/grid-mi-01.webp" alt="" width="40px">
+          黑鲨5 pro
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-02.webp" alt="" width="40px">
+          黑鲨5
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi 10A
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K50 pro
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K50
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K40S
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-01.webp" alt="" width="40px">
+          黑鲨5 pro
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-02.webp" alt="" width="40px">
+          黑鲨5
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi 10A
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K50 pro
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K50
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K40S
+        </a>
+
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+        </a>
+        
+      </div>
+
+    </div>
+    
+    <div class="item">
+      电视
+
+      <div class="nav">
+        <a href="">
+          <img src="./29.images/grid-mi-01.webp" alt="" width="40px">
+          黑鲨5 pro
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-02.webp" alt="" width="40px">
+          黑鲨5
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi 10A
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K50 pro
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K50
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K40S
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-01.webp" alt="" width="40px">
+          黑鲨5 pro
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-02.webp" alt="" width="40px">
+          黑鲨5
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi 10A
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K50 pro
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K50
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K40S
+        </a>
+        
+      </div>
+
+    </div>
+    
+    <div class="item">
+      笔记本
+
+      <div class="nav">
+        <a href="">
+          <img src="./29.images/grid-mi-01.webp" alt="" width="40px">
+          黑鲨5 pro
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-02.webp" alt="" width="40px">
+          黑鲨5
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi 10A
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K50 pro
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K50
+        </a>
+        
+      </div>
+
+    </div>
+    
+    <div class="item">
+      家电
+
+      <div class="nav">
+        <a href="">
+          <img src="./29.images/grid-mi-01.webp" alt="" width="40px">
+          黑鲨5 pro
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-02.webp" alt="" width="40px">
+          黑鲨5
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi 10A
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K50 pro
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K50
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K40S
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-01.webp" alt="" width="40px">
+          黑鲨5 pro
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-02.webp" alt="" width="40px">
+          黑鲨5
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi 10A
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K50 pro
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K50
+        </a>
+        <a href="">
+          <img src="./29.images/grid-mi-03.webp" alt="" width="40px">
+          Redmi K40S
+        </a>
+        
+      </div>
+
+    </div>
+    
+    <div class="item">
+      出行 穿戴
+    </div>
+    
+    <div class="item">
+      智能 路由器
+    </div>
+    
+    <div class="item">
+      电源 配件
+    </div>
+    
+    <div class="item">
+      健康 儿童
+    </div>
+    
+    <div class="item">
+      耳机 音箱
+    </div>
+    
+    <div class="item">
+      生活 箱包
+
+    </div>
+
+  </div>
+  
+  
+</body>
+</html>

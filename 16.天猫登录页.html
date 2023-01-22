@@ -1,0 +1,313 @@
+
+<!-- 16.天猫登录页 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>16.天猫登录页</title>
+  <style type="text/css">
+    /* 清除默认外边距 */
+    body{  
+      margin: 0;
+    }
+    .container{
+      width: 100%;
+      height: 600px;
+      background: #de0100;
+    }
+    .container .banner{
+      width: 1190px;
+      height: 600px;
+      /* border: 1px solid #000; */
+      margin: 0 auto;
+      background-image: url(./16.images/tmall.png);
+    }
+    .login{
+      width: 350px;
+      height: 400px;
+      background: #fff;
+      float: right;
+      margin-top: 100px;
+      /* 添加 内边距后，宽高 增加，用 怪异盒 避免增加 */
+      padding: 25px;
+      box-sizing: border-box;
+    }
+    .login .tab{
+      /* background: aqua; */
+      font-weight: 700px;
+      font-size: 0;
+      margin-bottom: 20px;
+    }
+    .login .tab span{
+      padding-bottom: 5px;
+      display: inline-block;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+    .login .tab span.current{
+      border-bottom: 2px solid black;
+    }
+    .wrap{
+      width: 100%;
+      height: 42px;
+      /* border: 1px solid red; */
+      margin-bottom: 20px;
+
+      position: relative;
+    }
+    .wrap input.txt{
+      width: 100%;
+      height: 42px;
+
+      box-sizing: border-box;
+      outline: none;
+
+      border: 1px solid #ddd;
+      padding-left: 50px;
+    }
+    .wrap input.txt:hover{
+      border: 1px solid #de0100;
+    }
+    .wrap input.phone{
+      padding-left: 120px;
+    }
+    .wrap i{
+      display: block;
+      width: 40px;
+      height: 40px;
+      background: #ddd;
+
+      position: absolute;   /* 相对于 .wrap定位 */
+      top: 1px;
+      left: 1px;
+    }
+    .wrap i.icon-phone{
+      background-image: url(./16.images/icon-phone.png);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .wrap i.icon-yzm{
+      background-image: url(./16.images/icon-number.png);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .wrap i.icon-id{
+      background-image: url(./16.images/icon-user.png);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .wrap i.icon-pwd{
+      background-image: url(./16.images/icon-pwd.png);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .wrap span.icon-send{
+      height: 40px;
+      display: inline-block;
+      line-height: 40px;
+      font-size: 14px;
+      color: #666;
+      cursor: pointer;
+
+      position: absolute;
+      top: 0;
+      right: 10px;
+    }
+
+    
+    .wrap .select-wrap{
+      width: 65px;
+      height: 40px;
+      /* background: aqua; */
+      position: absolute;
+      top: 1px;
+      left: 50px;
+    }
+
+    /* 下拉选项 的设置：span和select ，把 option的value 赋给 span显示，以控制多余的文字*/
+    .wrap .select-wrap span{
+      width: 65px;
+      height: 40px;
+      display: block;
+      font-size: 14px;
+      line-height: 40px;
+      /* background: aqua; */
+
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      /* 指针事件，此处用于响应select的点击选择；没有此属性，select会被span覆盖 */
+      pointer-events: none;
+    }
+
+    .wrap .select-wrap select{
+      width: 65px;
+      height: 40px;
+      /* border: 1px solid red; */
+      border: 0;
+      outline: none;
+      color: rgba(0, 0, 0, 0);/* 设置 select显示文字为透明 */
+      background: url(./16.images/icon-select.png) no-repeat 40px 8px;/* 上下箭头是一个背景图片 */
+    }
+
+    .wrap .select-wrap select option{
+      color: #000;            /* 显示 select的option的文字 */
+    }
+    .wrap button{
+      width: 100%;
+      height: 40px;
+      border: 1px solid #de0100;
+      background: #de0100;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+    .wrap a{
+      font-size: 14px;
+      color: #666;
+      text-decoration: none;
+      margin-right: 10px;
+      
+    }
+    .wrap a:hover{
+      color: #de0100;
+    }
+    .links{
+      text-align: right;
+      font-size: 0;
+    }
+
+    .pwd{
+      /* display: none; */
+    }
+    .sms{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="banner">
+      <div class="login">
+
+        <div class="tab">
+          <span class="current">密码登录</span>
+          <span>短信登录</span>
+        </div>
+
+        <!-- 密码登录和短信登录，先写短信登录（较复杂） -->
+
+
+        <!-- 密码登录 -->
+        <div class="pwd fm">
+          <form action="">
+            <div class="wrap">
+              <input type="text" class="txt" placeholder="会员名/邮箱/手机号">
+              <i class="icon-id"></i>
+            </div>
+
+            <div class="wrap">
+              <input type="text" class="txt" placeholder="请输入登录密码">
+              <i class="icon-pwd"></i>
+            </div>
+
+            <div class="wrap">
+              <button>登录</button>
+            </div>
+
+            <div class="wrap links">
+              <a href="">忘记密码</a>
+              <a href="">忘记用户</a>
+              <a href="">免费注册</a>
+            </div>
+          
+          </form>
+        </div>
+
+        <!-- 短信登录 -->
+        <div class="sms fm">
+          <form action="">
+            <div class="wrap">
+              <input type="text" class="txt phone" placeholder="请输入手机号">
+              <i class="icon-phone"></i>
+
+              <div class="select-wrap">
+                <!-- 把 option的value 赋给 span显示，以控制 多余显示的option文字-->
+                <span id="a1">+86</span>
+
+                <select name="" id="b1">
+                  <option value="+86">+86 中国大陆</option>
+                  <option value="+853">+853 中国澳门</option>
+                  <option value="+886">+886 中国台湾</option>
+                  <option value="+82">+82 韩国</option>
+                  <option value="+81">+81 日本</option>
+                  <option value="+1">+1 美国</option>
+                  <option value="+1">+1 加拿大</option>
+                  <option value="+44">+44 英国</option>
+                  <option value="+61">+61 澳大利亚</option>
+                  <option value="+65">+65 中国香港</option>
+                  <option value="+60">+60 马来西亚</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="wrap">
+              <input type="text" class="txt" placeholder="请输入验证码">
+              <i class="icon-yzm"></i>
+              <span class="icon-send">发送验证码</span>
+            </div>
+
+            <div class="wrap">
+              <button>登录</button>
+            </div>
+
+            <div class="wrap links">
+              <a href="">忘记密码</a>
+              <a href="">忘记用户</a>
+              <a href="">免费注册</a>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // 把 option的value 赋给 span显示，以控制 多余显示的option文字
+
+    var a1 = document.getElementById('a1');
+    var b1 = document.getElementById('b1');
+    b1.onchange = function(){
+      var i = this.selectedIndex;
+      // console.log(i)
+      var value = this.options[i].value;
+      // console.log(value);
+      a1.innerText = value
+    }
+
+  </script>
+
+  <script src="./16.images/javascript/jquery-1.7.2.min.js">
+  </script>
+
+  <script>
+    // 密码登录和短信登录 选项卡切换
+    $('.tab span').click(function(){
+
+      // 选项卡样式显隐 切换
+      $(this).addClass('current').siblings().removeClass('current');
+      var i = $(this).index();
+      // console.log(i)
+
+      // 选项卡页面 切换 
+      $('.login .fm').eq(i).show().siblings(".fm").hide();
+    })
+  </script>
+</body>
+</html>
